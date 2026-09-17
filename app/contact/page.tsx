@@ -1,37 +1,44 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import WhatsAppButton from "../../components/WhatsAppButton";
 
 const whatsappNumber = "919822193954";
 
+const services = [
+  "Structural Steel Fabrication",
+  "Industrial Shed Fabrication",
+  "Steel Erection",
+  "Mild Steel Fabrication",
+  "Staircases & Handrails",
+  "Platforms & Walkways",
+  "Machinery Structures",
+  "Repair & Modification",
+  "Custom Fabrication",
+  "On-Site Fabrication",
+  "Welding & Assembly",
+  "Installation & Support",
+];
+
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [service, setService] = useState("");
+  const [message, setMessage] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-
-    const name = formData.get("name")?.toString() || "";
-    const phone = formData.get("phone")?.toString() || "";
-    const work = formData.get("work")?.toString() || "";
-    const location = formData.get("location")?.toString() || "";
-    const message = formData.get("message")?.toString() || "";
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
 
     const whatsappMessage = encodeURIComponent(
       `Hello SANDEEP ENTERPRISES,
 
-I would like to discuss a fabrication/erection requirement.
+I would like to enquire about your fabrication/erection services.
 
 Name: ${name}
 Phone: ${phone}
-Type of Work: ${work}
-Project Location: ${location}
+Service: ${service || "General Enquiry"}
 
 Requirement:
 ${message}`
@@ -41,366 +48,382 @@ ${message}`
       `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`,
       "_blank"
     );
-
-    setSubmitted(true);
-    form.reset();
   }
 
   return (
-    <main className="min-h-screen bg-[#080808] text-white">
+    <main className="min-h-screen bg-white text-[#111111]">
       <Navbar />
 
+      {/* ========================================================= */}
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-white/10 pt-32 sm:pt-36">
-        <div className="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_70%_40%,rgba(249,115,22,0.14),transparent_45%)]" />
+      {/* ========================================================= */}
 
-        <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24 lg:px-8">
+      <section className="border-b border-black/10 bg-gray-50 pt-32">
+        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 lg:px-8 lg:py-28">
           <div className="max-w-4xl">
-            <div className="flex items-center gap-3">
-              <span className="h-px w-12 bg-orange-500" />
+            <p className="mb-5 text-sm font-bold tracking-[0.25em] text-orange-500">
+              CONTACT US
+            </p>
 
-              <p className="text-xs font-bold uppercase tracking-[0.3em] text-orange-500 sm:text-sm">
-                Contact Us
-              </p>
-            </div>
-
-            <h1 className="mt-7 text-5xl font-black leading-[0.95] sm:text-6xl lg:text-8xl">
-              LET'S BUILD
-              <br />
-              <span className="text-orange-500">TOGETHER.</span>
+            <h1 className="text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
+              LET&apos;S
+              <span className="text-orange-500"> TALK.</span>
             </h1>
 
-            <p className="mt-8 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
-              Have a fabrication, erection or customized steel work
-              requirement? Tell us about your project.
+            <p className="mt-6 max-w-2xl text-base leading-8 text-gray-600 sm:text-lg">
+              Have a fabrication, structural steel or erection requirement?
+              Tell us what you need and our team will get in touch with you.
             </p>
           </div>
         </div>
       </section>
 
-      {/* CONTACT DETAILS */}
-      <section>
-        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
-            {/* PHONE */}
+      {/* ========================================================= */}
+      {/* CONTACT CONTENT */}
+      {/* ========================================================= */}
+
+      <section className="bg-white py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+            
+            {/* ===================================================== */}
+            {/* LEFT SIDE */}
+            {/* ===================================================== */}
+
+            <div>
+              <p className="text-sm font-bold tracking-[0.2em] text-orange-500">
+                GET IN TOUCH
+              </p>
+
+              <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">
+                Let&apos;s discuss your project.
+              </h2>
+
+              <p className="mt-5 max-w-lg text-base leading-8 text-gray-600">
+                Whether you need structural fabrication, industrial shed work,
+                steel erection or a custom fabrication solution, you can
+                contact us directly.
+              </p>
+
+              <div className="mt-10 space-y-4">
+
+                {/* ================================================= */}
+                {/* PHONE */}
+                {/* ================================================= */}
+
+                <a
+                  href="tel:+919822193954"
+                  className="group block rounded-2xl border border-black/10 bg-gray-50 p-5 transition hover:border-orange-500/40 hover:bg-orange-50"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-500 text-lg">
+                      ☎
+                    </div>
+
+                    <div>
+                      <p className="text-xs font-bold tracking-[0.15em] text-gray-500">
+                        CALL US
+                      </p>
+
+                      <p className="mt-1 text-lg font-bold text-[#111111] group-hover:text-orange-500">
+                        9822193954
+                      </p>
+                    </div>
+                  </div>
+                </a>
+
+                {/* ================================================= */}
+                {/* WHATSAPP */}
+                {/* ================================================= */}
+
+                <a
+                  href={`https://wa.me/${whatsappNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block rounded-2xl border border-black/10 bg-gray-50 p-5 transition hover:border-orange-500/40 hover:bg-orange-50"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-500 text-lg">
+                      💬
+                    </div>
+
+                    <div>
+                      <p className="text-xs font-bold tracking-[0.15em] text-gray-500">
+                        WHATSAPP
+                      </p>
+
+                      <p className="mt-1 text-lg font-bold text-[#111111] group-hover:text-orange-500">
+                        Chat with us
+                      </p>
+                    </div>
+                  </div>
+                </a>
+
+                {/* ================================================= */}
+                {/* EMAIL */}
+                {/* ================================================= */}
+
+                <a
+                  href="mailto:sandeepenterprises4851@gmail.com"
+                  className="group block rounded-2xl border border-black/10 bg-gray-50 p-5 transition hover:border-orange-500/40 hover:bg-orange-50"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-500 text-lg">
+                      ✉
+                    </div>
+
+                    <div className="min-w-0">
+                      <p className="text-xs font-bold tracking-[0.15em] text-gray-500">
+                        EMAIL
+                      </p>
+
+                      <p className="mt-1 break-all text-base font-bold text-[#111111] group-hover:text-orange-500">
+                        sandeepenterprises4851@gmail.com
+                      </p>
+                    </div>
+                  </div>
+                </a>
+
+                {/* ================================================= */}
+                {/* LOCATION + GOOGLE MAP */}
+                {/* ================================================= */}
+
+                <div className="overflow-hidden rounded-2xl border border-black/10 bg-gray-50">
+
+                  {/* LOCATION DETAILS */}
+
+                  <div className="p-5">
+                    <div className="flex items-start gap-4">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-500 text-lg">
+                        📍
+                      </div>
+
+                      <div>
+                        <p className="text-xs font-bold tracking-[0.15em] text-gray-500">
+                          LOCATION
+                        </p>
+
+                        <p className="mt-1 text-base font-bold leading-7 text-[#111111]">
+                          Sanaswadi, Pune
+                          <br />
+                          Tal. Shirur, Maharashtra
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* GOOGLE MAP */}
+
+                  <div className="h-[280px] w-full border-t border-black/10 bg-gray-200">
+                    <iframe
+                      title="Sandeep Enterprises Location"
+                      src="https://www.google.com/maps?q=Sanaswadi,+Pune,+Maharashtra&output=embed"
+                      className="h-full w-full border-0"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  </div>
+
+                  {/* VIEW ON GOOGLE MAPS */}
+
+                  <div className="border-t border-black/10 bg-white p-4">
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Sanaswadi,+Pune,+Maharashtra"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between text-sm font-bold text-[#111111] transition hover:text-orange-500"
+                    >
+                      <span>View on Google Maps</span>
+
+                      <span className="text-lg">↗</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ===================================================== */}
+            {/* RIGHT SIDE - ENQUIRY FORM */}
+            {/* ===================================================== */}
+
+            <div className="rounded-3xl border border-black/10 bg-gray-50 p-6 sm:p-8 lg:p-10">
+              
+              <div>
+                <p className="text-sm font-bold tracking-[0.2em] text-orange-500">
+                  SEND AN ENQUIRY
+                </p>
+
+                <h2 className="mt-3 text-2xl font-black sm:text-3xl">
+                  Tell us about your requirement.
+                </h2>
+
+                <p className="mt-3 text-sm leading-7 text-gray-600">
+                  Fill in the details below. Your enquiry will open directly
+                  in WhatsApp.
+                </p>
+              </div>
+
+              {/* ================================================= */}
+              {/* FORM */}
+              {/* ================================================= */}
+
+              <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+
+                {/* NAME */}
+
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="mb-2 block text-sm font-bold text-gray-800"
+                  >
+                    Your Name
+                  </label>
+
+                  <input
+                    id="name"
+                    type="text"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Enter your name"
+                    className="w-full rounded-xl border border-black/10 bg-white px-4 py-3.5 text-sm outline-none transition placeholder:text-gray-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/10"
+                  />
+                </div>
+
+                {/* PHONE */}
+
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="mb-2 block text-sm font-bold text-gray-800"
+                  >
+                    Phone Number
+                  </label>
+
+                  <input
+                    id="phone"
+                    type="tel"
+                    required
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="Enter your phone number"
+                    className="w-full rounded-xl border border-black/10 bg-white px-4 py-3.5 text-sm outline-none transition placeholder:text-gray-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/10"
+                  />
+                </div>
+
+                {/* SERVICE */}
+
+                <div>
+                  <label
+                    htmlFor="service"
+                    className="mb-2 block text-sm font-bold text-gray-800"
+                  >
+                    Service Required
+                  </label>
+
+                  <select
+                    id="service"
+                    value={service}
+                    onChange={(e) => setService(e.target.value)}
+                    className="w-full rounded-xl border border-black/10 bg-white px-4 py-3.5 text-sm text-gray-700 outline-none transition focus:border-orange-500 focus:ring-2 focus:ring-orange-500/10"
+                  >
+                    <option value="">Select a service</option>
+
+                    {services.map((item) => (
+                      <option key={item} value={item}>
+                        {item}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* MESSAGE */}
+
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="mb-2 block text-sm font-bold text-gray-800"
+                  >
+                    Requirement
+                  </label>
+
+                  <textarea
+                    id="message"
+                    required
+                    rows={5}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Describe your project or requirement..."
+                    className="w-full resize-none rounded-xl border border-black/10 bg-white px-4 py-3.5 text-sm outline-none transition placeholder:text-gray-400 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/10"
+                  />
+                </div>
+
+                {/* SUBMIT */}
+
+                <button
+                  type="submit"
+                  className="w-full rounded-full bg-orange-500 px-6 py-4 text-sm font-black text-black transition hover:bg-orange-400"
+                >
+                  Send Enquiry on WhatsApp →
+                </button>
+
+                <p className="text-center text-xs text-gray-500">
+                  You will be redirected to WhatsApp to send your enquiry.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* CTA */}
+      {/* ========================================================= */}
+
+      <section className="bg-[#111111] py-20 text-white sm:py-24">
+        <div className="mx-auto max-w-5xl px-5 text-center sm:px-6">
+          
+          <p className="text-sm font-bold tracking-[0.25em] text-orange-500">
+            SANDEEP ENTERPRISES
+          </p>
+
+          <h2 className="mt-5 text-3xl font-black tracking-tight sm:text-5xl">
+            READY TO BUILD?
+          </h2>
+
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-gray-400 sm:text-base">
+            Contact us to discuss your fabrication and erection requirements.
+          </p>
+
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            
+            <a
+              href={`https://wa.me/${whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-orange-500 px-7 py-3.5 text-sm font-black text-black transition hover:bg-orange-400"
+            >
+              WhatsApp Us
+            </a>
+
             <a
               href="tel:+919822193954"
-              className="group bg-[#0d0d0d] p-7 transition hover:bg-[#111]"
+              className="rounded-full border border-white/20 px-7 py-3.5 text-sm font-bold text-white transition hover:border-orange-500 hover:text-orange-500"
             >
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-500">
-                01
-              </p>
-
-              <h2 className="mt-8 text-xl font-bold">Call Us</h2>
-
-              <p className="mt-3 text-sm text-gray-500">
-                9822193954
-              </p>
-
-              <p className="mt-7 text-sm font-semibold text-white group-hover:text-orange-500">
-                Call Now →
-              </p>
+              Call 9822193954
             </a>
 
-            {/* WHATSAPP */}
-            <a
-              href={`https://wa.me/${whatsappNumber}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-[#0d0d0d] p-7 transition hover:bg-[#111]"
-            >
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-500">
-                02
-              </p>
-
-              <h2 className="mt-8 text-xl font-bold">WhatsApp</h2>
-
-              <p className="mt-3 text-sm text-gray-500">
-                Quick project discussion
-              </p>
-
-              <p className="mt-7 text-sm font-semibold text-white group-hover:text-orange-500">
-                Message Us →
-              </p>
-            </a>
-
-            {/* EMAIL */}
-            <a
-              href="mailto:sandeepenterprises4851@gmail.com"
-              className="group bg-[#0d0d0d] p-7 transition hover:bg-[#111]"
-            >
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-500">
-                03
-              </p>
-
-              <h2 className="mt-8 text-xl font-bold">Email</h2>
-
-              <p className="mt-3 break-all text-sm text-gray-500">
-                sandeepenterprises4851@gmail.com
-              </p>
-
-              <p className="mt-7 text-sm font-semibold text-white group-hover:text-orange-500">
-                Send Email →
-              </p>
-            </a>
-
-            {/* LOCATION */}
-            <div className="bg-[#0d0d0d] p-7">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-500">
-                04
-              </p>
-
-              <h2 className="mt-8 text-xl font-bold">Location</h2>
-
-              <p className="mt-3 text-sm leading-6 text-gray-500">
-                Sanaswadi, Pune
-                <br />
-                Tal. Shirur, Maharashtra
-              </p>
-
-              <p className="mt-7 text-sm font-semibold text-white">
-                Maharashtra, India
-              </p>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* ENQUIRY FORM */}
-      <section className="border-y border-white/10 bg-[#0d0d0d]">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 sm:px-6 sm:py-24 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
-          {/* LEFT */}
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-orange-500">
-              Request a Quote
-            </p>
-
-            <h2 className="mt-4 text-4xl font-black leading-tight sm:text-5xl">
-              Tell us
-              <br />
-              what you need.
-            </h2>
-
-            <p className="mt-6 max-w-md text-sm leading-7 text-gray-500">
-              Give us some basic information about your project. After
-              submitting the form, your enquiry will open directly in
-              WhatsApp so you can continue the discussion.
-            </p>
-
-            <div className="mt-10 border-l-2 border-orange-500 pl-5">
-              <p className="text-sm font-semibold text-white">
-                25+ years of practical experience
-              </p>
-
-              <p className="mt-2 text-sm text-gray-500">
-                Fabrication • Erection • Structural Steel • Custom Work
-              </p>
-            </div>
-          </div>
-
-          {/* FORM */}
-          <form
-            onSubmit={handleSubmit}
-            className="border border-white/10 bg-[#080808] p-6 sm:p-8"
-          >
-            <div className="grid gap-6 sm:grid-cols-2">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="text-xs font-bold uppercase tracking-[0.15em] text-gray-500"
-                >
-                  Your Name
-                </label>
-
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  placeholder="Enter your name"
-                  className="mt-3 w-full border border-white/10 bg-[#0d0d0d] px-4 py-3 text-sm text-white outline-none transition placeholder:text-gray-700 focus:border-orange-500"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="text-xs font-bold uppercase tracking-[0.15em] text-gray-500"
-                >
-                  Phone Number
-                </label>
-
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  required
-                  placeholder="Enter phone number"
-                  className="mt-3 w-full border border-white/10 bg-[#0d0d0d] px-4 py-3 text-sm text-white outline-none transition placeholder:text-gray-700 focus:border-orange-500"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="work"
-                  className="text-xs font-bold uppercase tracking-[0.15em] text-gray-500"
-                >
-                  Type of Work
-                </label>
-
-                <select
-                  id="work"
-                  name="work"
-                  required
-                  defaultValue=""
-                  className="mt-3 w-full border border-white/10 bg-[#0d0d0d] px-4 py-3 text-sm text-white outline-none transition focus:border-orange-500"
-                >
-                  <option value="" disabled>
-                    Select work type
-                  </option>
-
-                  <option value="Structural Steel Fabrication">
-                    Structural Steel Fabrication
-                  </option>
-
-                  <option value="Industrial Shed">
-                    Industrial Shed
-                  </option>
-
-                  <option value="Steel Erection">
-                    Steel Erection
-                  </option>
-
-                  <option value="MS Fabrication">
-                    MS Fabrication
-                  </option>
-
-                  <option value="Staircase / Handrails">
-                    Staircase / Handrails
-                  </option>
-
-                  <option value="Platforms / Structures">
-                    Platforms / Structures
-                  </option>
-
-                  <option value="Machinery Structure">
-                    Machinery Structure
-                  </option>
-
-                  <option value="Repair / Modification">
-                    Repair / Modification
-                  </option>
-
-                  <option value="Other">
-                    Other
-                  </option>
-                </select>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="location"
-                  className="text-xs font-bold uppercase tracking-[0.15em] text-gray-500"
-                >
-                  Project Location
-                </label>
-
-                <input
-                  id="location"
-                  name="location"
-                  type="text"
-                  placeholder="City / Site location"
-                  className="mt-3 w-full border border-white/10 bg-[#0d0d0d] px-4 py-3 text-sm text-white outline-none transition placeholder:text-gray-700 focus:border-orange-500"
-                />
-              </div>
-            </div>
-
-            <div className="mt-6">
-              <label
-                htmlFor="message"
-                className="text-xs font-bold uppercase tracking-[0.15em] text-gray-500"
-              >
-                Requirement Details
-              </label>
-
-              <textarea
-                id="message"
-                name="message"
-                required
-                rows={6}
-                placeholder="Tell us about your project, approximate requirement, site work, etc."
-                className="mt-3 w-full resize-none border border-white/10 bg-[#0d0d0d] px-4 py-3 text-sm leading-6 text-white outline-none transition placeholder:text-gray-700 focus:border-orange-500"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="mt-6 w-full rounded-full bg-orange-500 px-7 py-4 text-sm font-bold text-black transition hover:bg-orange-400"
-            >
-              Send Requirement on WhatsApp →
-            </button>
-
-            {submitted && (
-              <p className="mt-4 border border-orange-500/20 bg-orange-500/5 p-4 text-center text-sm text-orange-400">
-                Your WhatsApp message has been prepared. Continue the
-                conversation there.
-              </p>
-            )}
-          </form>
-        </div>
-      </section>
-
-      {/* MAP */}
-      <section>
-        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <div className="mb-8">
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-orange-500">
-              Find Us
-            </p>
-
-            <h2 className="mt-4 text-3xl font-black sm:text-4xl">
-              Based in Sanaswadi, Pune.
-            </h2>
-          </div>
-
-          <div className="overflow-hidden border border-white/10">
-            <iframe
-              title="SANDEEP ENTERPRISES Location"
-              src="https://www.google.com/maps?q=Sanaswadi%2C%20Pune%2C%20Maharashtra&output=embed"
-              className="h-[400px] w-full border-0 grayscale"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* FINAL CTA */}
-      <section className="bg-orange-500 text-black">
-        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
-          <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-center">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.25em]">
-                SANDEEP ENTERPRISES
-              </p>
-
-              <h2 className="mt-3 max-w-2xl text-3xl font-black sm:text-4xl">
-                Ready to discuss your requirement?
-              </h2>
-            </div>
-
-            <a
-              href={`https://wa.me/${whatsappNumber}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-black px-7 py-3.5 text-center text-sm font-bold text-white transition hover:bg-black/80"
-            >
-              WhatsApp Us →
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* ========================================================= */}
+      {/* FOOTER */}
+      {/* ========================================================= */}
 
       <Footer />
+
+      {/* FLOATING WHATSAPP */}
 
       <WhatsAppButton />
     </main>

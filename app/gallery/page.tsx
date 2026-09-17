@@ -1,172 +1,231 @@
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import WhatsAppButton from "../../components/WhatsAppButton";
+import {
+  ArrowRight,
+  Image as ImageIcon,
+  Images,
+  MessageCircle,
+} from "lucide-react";
+import Link from "next/link";
 
-const whatsappNumber = "919822193954";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
-const whatsappMessage = encodeURIComponent(
-  "Hello SANDEEP ENTERPRISES, I found your website and would like to discuss a fabrication or erection requirement."
-);
+import { createClient } from "@/lib/supabase/server";
 
-const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+interface GalleryImage {
+  id: number;
+  storage_path: string;
+  created_at: string;
+}
 
-const galleryItems = [
-  {
-    number: "01",
-    title: "Industrial Shed",
-    category: "Fabrication & Erection",
-  },
-  {
-    number: "02",
-    title: "Structural Steel Work",
-    category: "Structural Fabrication",
-  },
-  {
-    number: "03",
-    title: "Steel Erection",
-    category: "On-Site Work",
-  },
-  {
-    number: "04",
-    title: "Industrial Structure",
-    category: "Fabrication",
-  },
-  {
-    number: "05",
-    title: "Machinery Structure",
-    category: "Industrial Work",
-  },
-  {
-    number: "06",
-    title: "Custom Fabrication",
-    category: "Custom Work",
-  },
-];
+export default async function GalleryPage() {
+  const supabase = await createClient();
 
-export default function GalleryPage() {
+  const { data: galleryImages, error } = await supabase
+    .from("gallery_images")
+    .select("id, storage_path, created_at")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    console.error("Gallery fetch error:", error);
+  }
+
+  const images: GalleryImage[] = galleryImages ?? [];
+
+  const imagesWithUrls = images.map((image) => {
+    const { data } = supabase.storage
+      .from("gallery-images")
+      .getPublicUrl(image.storage_path);
+
+    return {
+      ...image,
+      publicUrl: data.publicUrl,
+    };
+  });
+
   return (
-    <main className="min-h-screen bg-[#080808] text-white">
+    <main className="min-h-screen bg-white text-slate-900">
       <Navbar />
 
+      {/* ===================================================== */}
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-white/10 pt-32 sm:pt-36">
-        <div className="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_70%_40%,rgba(249,115,22,0.13),transparent_45%)]" />
+      {/* ===================================================== */}
 
-        <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <div className="max-w-4xl">
+      <section className="relative overflow-hidden">
+        <div className="absolute -right-24 -top-32 h-80 w-80 rounded-full bg-orange-100/60 blur-3xl" />
+        <div className="absolute -top-24 left-1/3 h-72 w-72 rounded-full bg-slate-50 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl px-5 pb-14 pt-20 sm:px-6 sm:pt-24 lg:px-8 lg:pt-28">
+          <div className="max-w-3xl">
             <div className="flex items-center gap-3">
-              <span className="h-px w-12 bg-orange-500" />
-
-              <p className="text-xs font-bold uppercase tracking-[0.3em] text-orange-500 sm:text-sm">
-                Gallery
-              </p>
-            </div>
-
-            <h1 className="mt-7 text-5xl font-black leading-[0.95] sm:text-6xl lg:text-8xl">
-              SEE THE
-              <br />
-              <span className="text-orange-500">WORK.</span>
-            </h1>
-
-            <p className="mt-8 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
-              A visual showcase of fabrication, structural and erection work
-              carried out by SANDEEP ENTERPRISES.
-            </p>
-
-            <p className="mt-4 text-sm text-gray-600">
-              Project photographs will be added as the company portfolio is
-              developed.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* GALLERY */}
-      <section>
-        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {galleryItems.map((item) => (
-              <article
-                key={item.number}
-                className="group overflow-hidden border border-white/10 bg-[#0d0d0d]"
-              >
-                {/* IMAGE AREA */}
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#111]">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(249,115,22,0.15),transparent_45%)] transition duration-500 group-hover:scale-110" />
-
-                  {/* Decorative steel elements */}
-                  <div className="absolute left-1/2 top-1/2 h-48 w-7 -translate-x-1/2 -translate-y-1/2 rotate-12 bg-orange-500/20" />
-
-                  <div className="absolute left-20 right-20 top-1/2 h-5 -translate-y-1/2 rotate-12 bg-orange-500/10" />
-
-                  <div className="absolute inset-8 border border-white/10" />
-
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-                    <p className="text-4xl font-black text-orange-500/60">
-                      {item.number}
-                    </p>
-
-                    <p className="mt-2 whitespace-nowrap text-[9px] font-bold uppercase tracking-[0.25em] text-gray-600">
-                      Photo Coming Soon
-                    </p>
-                  </div>
-
-                  <div className="absolute bottom-4 left-4">
-                    <span className="border border-orange-500/30 bg-black/70 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.2em] text-orange-500 backdrop-blur">
-                      {item.category}
-                    </span>
-                  </div>
-                </div>
-
-                {/* INFO */}
-                <div className="flex items-center justify-between p-5">
-                  <div>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-600">
-                      Project {item.number}
-                    </p>
-
-                    <h2 className="mt-2 text-lg font-bold">
-                      {item.title}
-                    </h2>
-                  </div>
-
-                  <span className="text-xl text-gray-700 transition group-hover:text-orange-500">
-                    ↗
-                  </span>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PHOTO REQUEST */}
-      <section className="border-y border-white/10 bg-[#0d0d0d]">
-        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-orange-500">
+              <span className="h-px w-10 bg-orange-500" />
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-orange-600">
                 Our Work
               </p>
+            </div>
 
-              <h2 className="mt-4 max-w-3xl text-3xl font-black sm:text-4xl">
-                Real project photographs will make this portfolio come alive.
-              </h2>
+            <h1 className="mt-5 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+              Industrial Work
+              <span className="text-orange-500"> Gallery</span>
+            </h1>
 
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-gray-500">
-                Once we collect photographs of completed projects, we will
-                organize them by project and type of work.
+            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-500 sm:text-lg">
+              Explore photographs from our fabrication, erection, workshop
+              and industrial site work.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ===================================================== */}
+      {/* GALLERY SECTION */}
+      {/* ===================================================== */}
+
+      <section className="relative mx-auto max-w-7xl px-5 pb-20 pt-4 sm:px-6 sm:pb-24 lg:px-8">
+        {/* Header */}
+        <div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div>
+            <div className="flex items-center gap-3">
+              <span className="h-px w-8 bg-orange-500" />
+              <p className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-400">
+                Behind The Work
               </p>
             </div>
 
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-orange-500 px-7 py-3.5 text-center text-sm font-bold text-black transition hover:bg-orange-400"
+            <h2 className="mt-3 text-2xl font-black tracking-tight text-slate-950 sm:text-3xl">
+              Fabrication & Erection
+            </h2>
+
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-500">
+              A look at our ongoing and completed industrial work.
+            </p>
+          </div>
+
+          {images.length > 0 && (
+            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2.5 shadow-sm">
+              <Images className="h-4 w-4 text-orange-500" />
+              <span className="text-xs font-bold text-slate-600">
+                {images.length}{" "}
+                {images.length === 1 ? "Photo" : "Photos"}
+              </span>
+            </div>
+          )}
+        </div>
+
+        {/* ================================================= */}
+        {/* EMPTY STATE */}
+        {/* ================================================= */}
+
+        {imagesWithUrls.length === 0 && (
+          <div className="rounded-3xl border border-dashed border-slate-200 bg-slate-50/60 px-6 py-20 text-center">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-slate-300 shadow-sm ring-1 ring-slate-100">
+              <ImageIcon className="h-7 w-7" />
+            </div>
+
+            <h3 className="mt-6 text-xl font-black text-slate-900">
+              Gallery coming soon
+            </h3>
+
+            <p className="mx-auto mt-3 max-w-md text-sm leading-7 text-slate-500">
+              We are currently updating our gallery with photographs of our
+              fabrication, erection and industrial work.
+            </p>
+
+            <Link
+              href="/contact"
+              className="mt-7 inline-flex items-center gap-2 rounded-xl bg-orange-500 px-6 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-orange-600"
             >
-              Discuss Your Work →
-            </a>
+              Get In Touch
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        )}
+
+        {/* ================================================= */}
+        {/* IMAGE GRID */}
+        {/* ================================================= */}
+
+        {imagesWithUrls.length > 0 && (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+            {imagesWithUrls.map((image, index) => (
+              <figure
+                key={image.id}
+                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+                {/* Image */}
+                <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                  <img
+                    src={image.publicUrl}
+                    alt={`Sandeep Enterprises industrial work ${index + 1}`}
+                    className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+                  />
+
+                  {/* Image number */}
+                  <div className="absolute right-3 top-3 rounded-full border border-slate-200 bg-white/90 px-2.5 py-1 text-[10px] font-bold text-slate-600 shadow-sm backdrop-blur-sm">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+                </div>
+
+                {/* Caption */}
+                <figcaption className="flex items-center gap-3 border-t border-slate-100 px-4 py-3.5">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-50 text-orange-500">
+                    <ImageIcon className="h-4 w-4" />
+                  </div>
+
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-bold text-slate-800">
+                      Sandeep Enterprises
+                    </p>
+
+                    <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                      Industrial Work
+                    </p>
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* ===================================================== */}
+      {/* CTA */}
+      {/* ===================================================== */}
+
+      <section className="relative mx-auto max-w-7xl px-5 pb-20 sm:px-6 sm:pb-24 lg:px-8">
+        <div className="absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-orange-100/50 blur-3xl" />
+
+        <div className="relative flex flex-col items-start gap-8 border-t border-slate-100 pt-14 sm:flex-row sm:items-center sm:justify-between">
+          <div className="max-w-2xl">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-orange-500 text-white shadow-sm">
+              <MessageCircle className="h-5 w-5" />
+            </div>
+
+            <h2 className="mt-5 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
+              Looking for reliable industrial fabrication?
+            </h2>
+
+            <p className="mt-4 text-sm leading-7 text-slate-500 sm:text-base">
+              Discuss your fabrication and erection requirements with
+              Sandeep Enterprises.
+            </p>
+          </div>
+
+          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-7 py-3.5 text-sm font-bold text-white shadow-sm transition hover:bg-orange-600"
+            >
+              Contact Us
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+
+            <Link
+              href="/projects"
+              className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-7 py-3.5 text-sm font-bold text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-50"
+            >
+              View Projects
+            </Link>
           </div>
         </div>
       </section>

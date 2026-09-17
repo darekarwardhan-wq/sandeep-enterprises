@@ -1,3 +1,7 @@
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import WhatsAppButton from "../../components/WhatsAppButton";
+
 const services = [
   {
     number: "01",
@@ -179,57 +183,23 @@ const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-[#080808] text-white">
-      {/* NAVBAR */}
-      <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#080808]/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-6 lg:px-8">
-          <a href="/" className="group">
-            <div className="text-lg font-black tracking-[0.12em] sm:text-xl">
-              SANDEEP
-              <span className="text-orange-500"> ENTERPRISES</span>
-            </div>
+    <main className="min-h-screen bg-white text-[#111111]">
+      <Navbar />
 
-            <div className="mt-0.5 text-[8px] font-medium tracking-[0.35em] text-gray-500 sm:text-[9px]">
-              FABRICATION • ERECTION
-            </div>
-          </a>
-
-          <nav className="hidden items-center gap-7 text-sm text-gray-300 lg:flex">
-            <a href="/" className="transition hover:text-orange-500">
-              Home
-            </a>
-
-            <a href="/#about" className="transition hover:text-orange-500">
-              About
-            </a>
-
-            <a href="/services" className="text-orange-500">
-              Services
-            </a>
-
-            <a href="/#projects" className="transition hover:text-orange-500">
-              Projects
-            </a>
-
-            <a href="/#contact" className="transition hover:text-orange-500">
-              Contact
-            </a>
-          </nav>
-
-          <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full bg-orange-500 px-4 py-2.5 text-xs font-bold text-black transition hover:bg-orange-400 sm:px-5 sm:text-sm"
-          >
-            WhatsApp Us
-          </a>
-        </div>
-      </header>
-
+      {/* ========================================================= */}
       {/* PAGE HERO */}
-      <section className="relative overflow-hidden border-b border-white/10 pt-32 sm:pt-36">
-        <div className="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_70%_40%,rgba(249,115,22,0.12),transparent_40%)]" />
+      {/* ========================================================= */}
+
+      <section className="relative overflow-hidden border-b border-black/10 pt-32 sm:pt-36">
+        {/* Orange background glow */}
+        <div className="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_70%_40%,rgba(249,115,22,0.10),transparent_42%)]" />
+
+        {/* Decorative industrial lines */}
+        <div className="absolute right-20 top-28 hidden h-80 w-px rotate-12 bg-orange-500/20 lg:block" />
+
+        <div className="absolute right-40 top-40 hidden h-64 w-px -rotate-12 bg-black/10 lg:block" />
+
+        <div className="absolute right-10 top-72 hidden h-1 w-72 rotate-12 bg-orange-500/20 lg:block" />
 
         <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24 lg:px-8">
           <div className="max-w-4xl">
@@ -241,57 +211,96 @@ export default function ServicesPage() {
               </p>
             </div>
 
-            <h1 className="mt-7 text-5xl font-black leading-[0.95] sm:text-6xl lg:text-8xl">
+            <h1 className="mt-7 text-5xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-8xl">
               FABRICATION.
               <br />
               <span className="text-orange-500">ERECTION.</span>
             </h1>
 
-            <p className="mt-8 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
+            <p className="mt-8 max-w-2xl text-base leading-8 text-gray-600 sm:text-lg">
               Comprehensive fabrication and erection solutions for industrial,
               commercial and customized requirements.
             </p>
 
-            <p className="mt-4 text-sm text-gray-600">
-              25+ years of experience • Sanaswadi, Pune
+            <div className="mt-6 flex flex-wrap gap-3">
+              <span className="border border-black/10 bg-gray-50 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-gray-500">
+                25+ Years Experience
+              </span>
+
+              <span className="border border-black/10 bg-gray-50 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-gray-500">
+                Sanaswadi, Pune
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* SERVICES INTRO */}
+      {/* ========================================================= */}
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
+          <div className="flex flex-col justify-between gap-6 border-b border-black/10 pb-8 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-orange-500">
+                What We Do
+              </p>
+
+              <h2 className="mt-3 text-3xl font-black sm:text-4xl">
+                Services built around your requirement.
+              </h2>
+            </div>
+
+            <p className="max-w-md text-sm leading-6 text-gray-500">
+              From structural fabrication to on-site erection and
+              modifications, our services cover a broad range of steel work.
             </p>
           </div>
         </div>
       </section>
 
+      {/* ========================================================= */}
       {/* SERVICES LIST */}
-      <section>
-        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-2">
+      {/* ========================================================= */}
+
+      <section className="bg-[#F7F7F5]">
+        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+          <div className="grid gap-5 lg:grid-cols-2">
             {services.map((service) => (
               <article
                 key={service.number}
-                className="group border border-white/10 bg-[#0d0d0d] p-7 transition duration-300 hover:border-orange-500/40 hover:bg-[#111]"
+                className="group border border-black/10 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-lg sm:p-8"
               >
+                {/* TOP */}
                 <div className="flex items-start justify-between">
-                  <span className="text-sm font-bold text-orange-500">
+                  <span className="text-sm font-black text-orange-500">
                     {service.number}
                   </span>
 
-                  <span className="text-2xl text-gray-700 transition group-hover:text-orange-500">
+                  <span className="text-2xl text-gray-300 transition duration-300 group-hover:text-orange-500">
                     ↗
                   </span>
                 </div>
 
-                <h2 className="mt-10 text-2xl font-bold sm:text-3xl">
+                {/* TITLE */}
+                <h2 className="mt-10 text-2xl font-black leading-tight sm:text-3xl">
                   {service.title}
                 </h2>
 
-                <p className="mt-3 text-base font-medium text-gray-300">
+                {/* SHORT DESCRIPTION */}
+                <p className="mt-4 text-base font-semibold leading-7 text-gray-800">
                   {service.short}
                 </p>
 
-                <p className="mt-5 leading-7 text-gray-500">
+                {/* DESCRIPTION */}
+                <p className="mt-4 text-sm leading-7 text-gray-600">
                   {service.description}
                 </p>
 
-                <div className="mt-7 border-t border-white/10 pt-6">
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-600">
+                {/* APPLICATIONS */}
+                <div className="mt-7 border-t border-black/10 pt-6">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
                     Typical Applications
                   </p>
 
@@ -299,12 +308,28 @@ export default function ServicesPage() {
                     {service.applications.map((application) => (
                       <span
                         key={application}
-                        className="border border-white/10 px-3 py-1.5 text-xs text-gray-400"
+                        className="border border-black/10 bg-gray-50 px-3 py-1.5 text-xs font-medium text-gray-600 transition group-hover:border-orange-500/20 group-hover:bg-orange-50"
                       >
                         {application}
                       </span>
                     ))}
                   </div>
+                </div>
+
+                {/* ENQUIRY */}
+                <div className="mt-7 flex items-center justify-between border-t border-black/10 pt-5">
+                  <span className="text-xs text-gray-400">
+                    Discuss this service
+                  </span>
+
+                  <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-bold text-orange-500 transition hover:text-orange-600"
+                  >
+                    Enquire →
+                  </a>
                 </div>
               </article>
             ))}
@@ -312,69 +337,130 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* ========================================================= */}
+      {/* PROCESS */}
+      {/* ========================================================= */}
+
+      <section className="bg-white">
+        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr]">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-orange-500">
+                How We Work
+              </p>
+
+              <h2 className="mt-4 text-4xl font-black leading-tight sm:text-5xl">
+                From requirement
+                <br />
+                <span className="text-orange-500">to execution.</span>
+              </h2>
+
+              <p className="mt-5 max-w-md leading-7 text-gray-600">
+                Every project can have different requirements. We discuss the
+                work, understand the site and then plan the fabrication or
+                erection scope accordingly.
+              </p>
+            </div>
+
+            <div className="grid gap-px border border-black/10 bg-black/10 sm:grid-cols-2">
+              {[
+                {
+                  number: "01",
+                  title: "Understand",
+                  text: "Discuss the project, requirements, dimensions and site conditions.",
+                },
+                {
+                  number: "02",
+                  title: "Plan",
+                  text: "Determine the appropriate fabrication, assembly and erection requirements.",
+                },
+                {
+                  number: "03",
+                  title: "Fabricate",
+                  text: "Carry out the required structural or customized fabrication work.",
+                },
+                {
+                  number: "04",
+                  title: "Execute",
+                  text: "Complete erection, installation or site work according to the project scope.",
+                },
+              ].map((step) => (
+                <div
+                  key={step.number}
+                  className="bg-[#F7F7F5] p-7 transition hover:bg-white sm:p-8"
+                >
+                  <p className="text-sm font-black text-orange-500">
+                    {step.number}
+                  </p>
+
+                  <h3 className="mt-8 text-xl font-bold">
+                    {step.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-6 text-gray-600">
+                    {step.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
       {/* CTA */}
+      {/* ========================================================= */}
+
       <section className="bg-orange-500 text-black">
-        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-center">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.25em]">
                 Have a Requirement?
               </p>
 
-              <h2 className="mt-3 max-w-2xl text-3xl font-black sm:text-4xl">
+              <h2 className="mt-3 max-w-2xl text-3xl font-black leading-tight sm:text-4xl">
                 Tell us what you need. We'll discuss the work with you.
               </h2>
+
+              <p className="mt-4 max-w-xl text-black/70">
+                Contact SANDEEP ENTERPRISES directly for fabrication,
+                erection, structural and customized work requirements.
+              </p>
             </div>
 
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex rounded-full bg-black px-7 py-3.5 text-center text-sm font-bold text-white transition hover:bg-black/80"
-            >
-              Discuss on WhatsApp →
-            </a>
+            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-black px-7 py-3.5 text-center text-sm font-bold text-white transition hover:bg-black/80"
+              >
+                Discuss on WhatsApp →
+              </a>
+
+              <a
+                href="tel:+919822193954"
+                className="rounded-full border border-black/25 px-7 py-3.5 text-center text-sm font-bold transition hover:bg-black/10"
+              >
+                Call 9822193954
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* ========================================================= */}
       {/* FOOTER */}
-      <footer className="bg-[#050505]">
-        <div className="mx-auto max-w-7xl px-5 py-10 sm:px-6 lg:px-8">
-          <div className="flex flex-col justify-between gap-5 border-b border-white/10 pb-8 sm:flex-row">
-            <div>
-              <div className="font-black tracking-[0.12em]">
-                SANDEEP <span className="text-orange-500">ENTERPRISES</span>
-              </div>
+      {/* ========================================================= */}
 
-              <p className="mt-2 text-xs text-gray-600">
-                Fabrication • Erection • Structural Work
-              </p>
-            </div>
+      <Footer />
 
-            <div className="text-sm text-gray-500">
-              <p>9822193954</p>
-              <p className="mt-1">Sanaswadi, Pune, Tal. Shirur</p>
-            </div>
-          </div>
+      {/* ========================================================= */}
+      {/* FLOATING WHATSAPP */}
+      {/* ========================================================= */}
 
-          <p className="pt-6 text-xs text-gray-700">
-            © {new Date().getFullYear()} SANDEEP ENTERPRISES. All rights
-            reserved.
-          </p>
-        </div>
-      </footer>
-
-      {/* WHATSAPP */}
-      <a
-        href={whatsappLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Contact SANDEEP ENTERPRISES on WhatsApp"
-        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-xl font-black text-white shadow-2xl transition hover:scale-105 hover:bg-green-400"
-      >
-        W
-      </a>
+      <WhatsAppButton />
     </main>
   );
 }

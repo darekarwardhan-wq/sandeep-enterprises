@@ -27,11 +27,11 @@ export default function Navbar() {
   }
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#080808]/95 backdrop-blur-xl">
+    <header className="fixed left-0 right-0 top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-6 lg:px-8">
         {/* LOGO */}
         <a href="/" className="group" onClick={closeMenu}>
-          <div className="text-lg font-black tracking-[0.12em] sm:text-xl">
+          <div className="text-lg font-black tracking-[0.12em] text-[#111111] sm:text-xl">
             SANDEEP
             <span className="text-orange-500"> ENTERPRISES</span>
           </div>
@@ -42,12 +42,12 @@ export default function Navbar() {
         </a>
 
         {/* DESKTOP NAVIGATION */}
-        <nav className="hidden items-center gap-6 text-sm text-gray-300 lg:flex xl:gap-7">
+        <nav className="hidden items-center gap-6 text-sm text-gray-700 lg:flex xl:gap-7">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="transition hover:text-orange-500"
+              className="font-medium transition hover:text-orange-500"
             >
               {link.name}
             </a>
@@ -70,7 +70,7 @@ export default function Navbar() {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-orange-500 px-4 py-2.5 text-xs font-bold text-black"
+            className="rounded-full bg-orange-500 px-4 py-2.5 text-xs font-bold text-black transition hover:bg-orange-400"
           >
             WhatsApp
           </a>
@@ -80,7 +80,7 @@ export default function Navbar() {
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(!menuOpen)}
-            className="flex h-10 w-10 items-center justify-center border border-white/10 text-white"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 text-[#111111] transition hover:border-orange-500 hover:text-orange-500"
           >
             <span className="text-xl">
               {menuOpen ? "×" : "☰"}
@@ -91,7 +91,7 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       {menuOpen && (
-        <div className="border-t border-white/10 bg-[#080808] lg:hidden">
+        <div className="border-t border-black/10 bg-white lg:hidden">
           <nav className="mx-auto max-w-7xl px-5 py-4 sm:px-6">
             <div className="flex flex-col">
               {navLinks.map((link) => (
@@ -99,7 +99,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={closeMenu}
-                  className="border-b border-white/10 py-4 text-sm font-medium text-gray-300 transition hover:text-orange-500"
+                  className="border-b border-black/10 py-4 text-sm font-medium text-gray-700 transition hover:text-orange-500"
                 >
                   {link.name}
                 </a>
@@ -108,7 +108,7 @@ export default function Navbar() {
 
             <a
               href="tel:+919822193954"
-              className="mt-4 block rounded-full border border-orange-500/30 px-5 py-3 text-center text-sm font-bold text-orange-500"
+              className="mt-4 block rounded-full border border-orange-500/30 px-5 py-3 text-center text-sm font-bold text-orange-500 transition hover:bg-orange-50"
               onClick={closeMenu}
             >
               Call 9822193954
