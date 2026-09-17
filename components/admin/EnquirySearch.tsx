@@ -71,20 +71,15 @@ export default function EnquirySearch() {
           SEARCH INPUT
       ====================================================== */}
 
-      <div className="relative min-w-0 flex-1">
-        <Search
-          className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
-          strokeWidth={2}
-        />
-
+      <div className="min-w-0 flex-1">
         <input
-          type="search"
+          type="text"
           value={search}
           onChange={(event) =>
             setSearch(event.target.value)
           }
           placeholder="Search name, phone, work type or location..."
-          className="h-11 w-full rounded-xl border border-slate-200 bg-white pl-11 pr-4 text-sm text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10"
+          className="h-11 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-slate-900 shadow-sm outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10"
         />
       </div>
 
