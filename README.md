@@ -2,21 +2,47 @@
 
 # 🏗️ SANDEEP ENTERPRISES
 
-### Fabrication & Erection • Industrial Steel Solutions
+**Fabrication&nbsp;&nbsp;·&nbsp;&nbsp;Erection&nbsp;&nbsp;·&nbsp;&nbsp;Industrial Steel Solutions**
 
-**A modern digital platform built to bring a traditional fabrication business online.**
-
-*Showcase projects&nbsp;•&nbsp;Manage enquiries&nbsp;•&nbsp;Connect with customers&nbsp;•&nbsp;Manage business content*
-
-[![Live Website](https://img.shields.io/badge/🌐_Live_Website-Visit_Now-orange?style=for-the-badge)](https://sandeep-enterprises-drab.vercel.app/)
-[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/darekarwardhan-wq/sandeep-enterprises)
-
-[![Made with Next.js](https://img.shields.io/badge/Made_with-Next.js-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![Powered by Supabase](https://img.shields.io/badge/Powered_by-Supabase-3ECF8E?style=for-the-badge&logo=supabase)](https://supabase.com/)
+A modern digital presence and business management platform<br/>
+built for an established industrial fabrication company in Sanaswadi, Pune.
 
 <br/>
 
-[![Sandeep Enterprises](https://github.com/darekarwardhan-wq/sandeep-enterprises/raw/main/public/images/hero.png)](/darekarwardhan-wq/sandeep-enterprises/blob/main/public/images/hero.png)
+<a href="https://sandeep-enterprises-drab.vercel.app/">
+  <img src="https://img.shields.io/badge/🌐_LIVE_WEBSITE-Visit_Now-FF7A00?style=for-the-badge&labelColor=111827" alt="Live Website"/>
+</a>
+<a href="https://github.com/darekarwardhan-wq/sandeep-enterprises">
+  <img src="https://img.shields.io/badge/💻_SOURCE_CODE-View_Repository-111827?style=for-the-badge&logo=github&logoColor=white" alt="Source Code"/>
+</a>
+
+<br/>
+
+<sub>
+
+[![Last Commit](https://img.shields.io/github/last-commit/darekarwardhan-wq/sandeep-enterprises?style=flat-square&color=FF7A00&label=last%20commit)](https://github.com/darekarwardhan-wq/sandeep-enterprises/commits/main)
+[![Repo Stars](https://img.shields.io/github/stars/darekarwardhan-wq/sandeep-enterprises?style=flat-square&color=FF7A00&label=stars)](https://github.com/darekarwardhan-wq/sandeep-enterprises/stargazers)
+[![Top Language](https://img.shields.io/github/languages/top/darekarwardhan-wq/sandeep-enterprises?style=flat-square&color=FF7A00&label=language)](https://github.com/darekarwardhan-wq/sandeep-enterprises)
+
+</sub>
+
+<br/>
+
+<img src="public/images/hero.png" alt="Sandeep Enterprises — website preview" width="90%"/>
+
+<sub><i>Public website preview — Sandeep Enterprises</i></sub>
+
+<br/>
+<br/>
+
+**BUILT WITH**
+
+<img src="https://img.shields.io/badge/Next.js-16-111827?style=flat-square&logo=next.js&logoColor=white" alt="Next.js"/>&nbsp;
+<img src="https://img.shields.io/badge/React-19-111827?style=flat-square&logo=react&logoColor=61DAFB" alt="React"/>&nbsp;
+<img src="https://img.shields.io/badge/TypeScript-5-111827?style=flat-square&logo=typescript&logoColor=3178C6" alt="TypeScript"/>&nbsp;
+<img src="https://img.shields.io/badge/Tailwind_CSS-4-111827?style=flat-square&logo=tailwindcss&logoColor=06B6D4" alt="Tailwind CSS"/>&nbsp;
+<img src="https://img.shields.io/badge/Supabase-Backend-111827?style=flat-square&logo=supabase&logoColor=3ECF8E" alt="Supabase"/>&nbsp;
+<img src="https://img.shields.io/badge/Vercel-Deployed-111827?style=flat-square&logo=vercel&logoColor=white" alt="Vercel"/>
 
 </div>
 
@@ -24,276 +50,276 @@
 
 ## 📑 Table of Contents
 
-- [About](#-about)
-- [Live Platform](#-live-platform)
-- [Features](#-features)
-  - [Public Website](#-public-website)
-  - [Admin Management System](#-admin-management-system)
-- [How the Platform Works](#-how-the-platform-works)
+- [Overview](#-overview)
+- [What This Platform Provides](#-what-this-platform-provides)
+- [Services](#-services)
+- [Project Showcase](#-project-showcase)
+- [Admin Panel](#-admin-panel)
+- [Image Management](#️-image-management)
+- [System Architecture](#-system-architecture)
 - [Technology Stack](#️-technology-stack)
-- [Backend & Storage](#️-backend--storage)
-- [Responsive Design](#-responsive-design)
-- [Customer Communication](#-customer-communication)
 - [Project Structure](#-project-structure)
 - [Getting Started](#-getting-started)
 - [Deployment](#-deployment)
 - [Security](#-security)
-- [Project Goals](#-project-goals)
-- [Future Roadmap](#-future-roadmap)
+- [Design & UX](#-design--ux)
+- [Project Objectives](#-project-objectives)
+- [Roadmap](#-roadmap)
+- [Development Philosophy](#-development-philosophy)
 - [Developer](#-developer)
 - [Support](#-support)
 
 ---
 
-## 🏢 About
+## ✦ Overview
 
-**Sandeep Enterprises** is an industrial fabrication and erection business based in **Sanaswadi, Pune, Maharashtra**, with more than **25 years of experience** in the fabrication and erection field.
+**Sandeep Enterprises** is an industrial **fabrication and erection business based in Sanaswadi, Pune, Maharashtra**.
 
-This project is a full-stack digital business platform created to give the company a professional online presence and make it easier for customers to:
+This project transforms the company's traditional business presence into a modern, responsive web platform where customers can discover services, explore completed work, submit enquiries, and connect directly with the business.
 
-| | |
-|---|---|
-| 🔩 | Explore fabrication and erection services |
-| 🏗️ | View completed projects |
-| 📸 | Browse work photographs |
-| 📩 | Submit project enquiries |
-| 💬 | Contact the business through WhatsApp |
-| 📞 | Call the business directly |
-| 📍 | Find the business location |
+Behind the public website is a secure **admin management system** that allows business content to be updated dynamically — without editing the source code.
 
-The platform also includes a secure **Admin Panel** for managing enquiries, projects, and business photographs.
+> **The objective:** combine a professional industrial website with a practical content and enquiry management system.
+
+<div align="right"><a href="#-table-of-contents">⬆️ Back to top</a></div>
 
 ---
 
-## 🌐 Live Platform
+## ✦ What This Platform Provides
 
-<div align="center">
+<table>
+<tr>
+<td width="50%">
 
-| Business | Location |
-|---|---|
-| **Sandeep Enterprises** — Fabrication & Erection | 📍 Sanaswadi, Pune, Maharashtra |
+### 🌐 Customer Experience
 
-[![Open Live Website](https://img.shields.io/badge/OPEN_LIVE_WEBSITE-FF7A00?style=for-the-badge)](https://sandeep-enterprises-drab.vercel.app/)
+- Modern responsive website
+- Company & services information
+- Project portfolio
+- Project-specific galleries
+- General work gallery
+- Contact & enquiry form
+- WhatsApp integration
+- Direct phone contact
+- Business location
 
-</div>
+</td>
+<td width="50%">
 
----
+### 🔐 Business Management
 
-## ✨ Features
+- Secure admin authentication
+- Enquiry dashboard
+- Enquiry status management
+- Project CRUD operations
+- Project image management
+- Cover image selection
+- Gallery management
+- Supabase Storage
+- PostgreSQL-backed content
 
-### 🌐 Public Website
+</td>
+</tr>
+</table>
 
-#### 🏠 Home
-A professional, industrial-focused landing page featuring:
-
-- Hero section
-- Company introduction
-- Experience highlights
-- Services overview
-- "Why Choose Us" section
-- Featured projects
-- Contact CTA with WhatsApp integration
-
-#### 📖 About
-Provides information about:
-
-- Company background
-- Industry experience
-- Fabrication and erection capabilities
-- Work approach and workmanship
-
-#### 🔩 Services
-
-| # | Service |
-|:---:|---|
-| 01 | Structural Steel Fabrication |
-| 02 | Industrial Shed Fabrication |
-| 03 | Steel Erection |
-| 04 | MS Fabrication |
-| 05 | Staircases & Handrails |
-| 06 | Platforms & Structures |
-| 07 | Machinery Structures |
-| 08 | Repair & Modification |
-
-#### 🏗️ Projects
-Customers can explore project-specific information, including:
-
-- Project name, work type, location, and year
-- Description
-- Cover image
-- Additional project photographs
-
-> Each project maintains its own dedicated collection of images.
-
-#### 🖼️ Gallery
-A separate business gallery showcases general fabrication and erection work, independent of project-specific photographs.
-
-#### 📩 Contact
-The contact experience provides:
-
-- Phone contact
-- WhatsApp contact
-- Email contact
-- Business location with Google Maps
-- Customer enquiry form
-
-<br/>
-
-### 🔐 Admin Management System
-
-The website includes a dedicated, authenticated **Admin Panel** so business content can be managed without changing the source code.
-
-#### 📊 Dashboard
-Administrators can:
-
-- View, search, and filter customer enquiries
-- View enquiry details
-- Call customers directly
-- Contact customers through WhatsApp
-
-#### 📩 Enquiry Management
-
-Enquiries follow a simple workflow:
-
-```
-🆕 NEW  →  📞 CONTACTED  →  ⚙️ IN PROGRESS  →  ✅ COMPLETED
-```
-
-Supported statuses: `🆕 New` · `📞 Contacted` · `⚙️ In Progress` · `✅ Completed`
-
-#### 🏗️ Project Management
-Administrators can:
-
-- ➕ Create projects
-- ✏️ Edit projects
-- 🗑️ Delete projects
-- 📸 Upload / 🗑️ delete project photographs
-- ⭐ Select or ❌ remove a cover photograph
-
-#### 🖼️ Gallery Management
-Administrators can:
-
-- Upload gallery photographs
-- View business work photographs
-- Delete gallery photographs
-
-#### 🔑 Authentication
-The Admin Panel is protected using **Supabase Authentication**.
+<div align="right"><a href="#-table-of-contents">⬆️ Back to top</a></div>
 
 ---
 
-## 🧠 How the Platform Works
+## 🏭 Services
 
+The website presents the company's industrial capabilities in a structured format.
+
+| Service | Focus |
+|:--|:--|
+| 🔩 **Structural Steel Fabrication** | Fabrication of industrial steel structures |
+| 🏗️ **Steel Erection** | On-site erection and structural installation |
+| 🏭 **Industrial Shed Fabrication** | Industrial shed and structural work |
+| ⚙️ **MS Fabrication** | Custom mild-steel fabrication |
+| 🪜 **Staircases & Handrails** | Industrial and commercial access structures |
+| 🏢 **Platforms & Structures** | Custom industrial platforms |
+| 🔧 **Machinery Structures** | Structural support and machinery frameworks |
+| 🛠️ **Repair & Modification** | Modification, repair and maintenance work |
+
+<div align="right"><a href="#-table-of-contents">⬆️ Back to top</a></div>
+
+---
+
+## 📸 Project Showcase
+
+Projects are managed dynamically through the Admin Panel.
+
+Each project can contain:
+
+```text
+PROJECT
+│
+├── Name
+├── Location
+├── Work Type
+├── Year
+├── Description
+│
+└── Images
+     ├── Cover Image ⭐
+     ├── Image 02
+     ├── Image 03
+     └── Image 04
 ```
-                         CUSTOMER
-                            │
-                            ▼
-                  ┌───────────────────┐
-                  │   Public Website  │
-                  └─────────┬─────────┘
-                             │
-          ┌──────────────────┼──────────────────┐
-          ▼                  ▼                   ▼
-      Services           Projects             Contact
-          │                  │                   │
-          └──────────────────┼───────────────────┘
-                             ▼
-                     Customer Enquiry
-                             │
-                             ▼
-                     ┌───────────────┐
-                     │  Supabase DB  │
-                     └───────┬───────┘
-                             │
-                             ▼
-                       🔐 Admin Panel
-                             │
-             ┌───────────────┼───────────────┐
-             ▼                ▼               ▼
-         Enquiries        Projects         Gallery
-             │                ▼               │
-             └────────────────┼───────────────┘
-                             ▼
-                     Supabase Storage
+
+The **cover image** acts as the primary visual for the project, while additional photographs remain available for visitors to explore.
+
+<div align="right"><a href="#-table-of-contents">⬆️ Back to top</a></div>
+
+---
+
+## 🔐 Admin Panel
+
+The admin experience is designed around one principle:
+
+> **Business content should be manageable without touching the codebase.**
+
+### 📊 Dashboard
+
+The administrator can quickly access:
+
+- Customer enquiries
+- Projects
+- Project images
+- Gallery
+- Enquiry status
+
+### 📩 Enquiry Workflow
+
+Enquiries move through a clear business workflow:
+
+```text
+        ┌─────────┐
+        │  NEW    │
+        └────┬────┘
+             │
+             ▼
+      ┌─────────────┐
+      │  CONTACTED  │
+      └──────┬──────┘
+             │
+             ▼
+      ┌──────────────┐
+      │ IN PROGRESS  │
+      └──────┬───────┘
+             │
+             ▼
+       ┌───────────┐
+       │ COMPLETED │
+       └───────────┘
 ```
+
+Administrators can search, review and update enquiry status as the conversation progresses.
+
+<div align="right"><a href="#-table-of-contents">⬆️ Back to top</a></div>
+
+---
+
+## 🖼️ Image Management
+
+The Admin Panel separates **project images** from the general **business gallery**.
+
+### Project Images
+
+```text
+projects/
+└── {projectId}/
+    ├── cover.webp
+    ├── image-02.webp
+    ├── image-03.webp
+    └── image-04.webp
+```
+
+### Gallery Images
+
+```text
+gallery/
+├── work-01.webp
+├── work-02.webp
+├── work-03.webp
+└── work-04.webp
+```
+
+Images are stored in **Supabase Storage**, while the database stores the associated metadata.
+
+<div align="right"><a href="#-table-of-contents">⬆️ Back to top</a></div>
+
+---
+
+## 🧩 System Architecture
+
+```text
+                         ┌─────────────────────┐
+                         │       VISITOR       │
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │     NEXT.JS APP     │
+                         └──────────┬──────────┘
+                                    │
+                ┌───────────────────┴───────────────────┐
+                │                                       │
+                ▼                                       ▼
+       ┌──────────────────┐                    ┌──────────────────┐
+       │  PUBLIC WEBSITE  │                    │   ADMIN PANEL    │
+       │                  │                    │                  │
+       │ Home             │                    │ Dashboard        │
+       │ About            │                    │ Enquiries        │
+       │ Services         │                    │ Projects         │
+       │ Projects         │                    │ Gallery          │
+       │ Gallery          │                    │ Authentication   │
+       │ Contact          │                    │                  │
+       └────────┬─────────┘                    └────────┬─────────┘
+                │                                       │
+                └──────────────────┬────────────────────┘
+                                   │
+                                   ▼
+                         ┌─────────────────────┐
+                         │      SUPABASE       │
+                         ├─────────────────────┤
+                         │ PostgreSQL          │
+                         │ Authentication      │
+                         │ Storage             │
+                         └─────────────────────┘
+```
+
+<div align="right"><a href="#-table-of-contents">⬆️ Back to top</a></div>
 
 ---
 
 ## 🛠️ Technology Stack
 
-| Technology | Purpose |
-|---|---|
-| ⚡ **Next.js 16** | Full-stack React framework |
-| ⚛️ **React 19** | UI development |
-| 🔷 **TypeScript** | Type-safe development |
-| 🎨 **Tailwind CSS 4** | Responsive styling |
-| 🟢 **Supabase** | Backend platform |
-| 🐘 **PostgreSQL** | Database |
-| 🔐 **Supabase Auth** | Admin authentication |
-| ☁️ **Supabase Storage** | Image storage |
-| 🧩 **Lucide React** | UI icons |
-| 🚀 **Vercel** | Deployment |
-| 🐙 **GitHub** | Version control |
+<div align="center">
 
----
+| Layer | Technology |
+|:--|:--|
+| **Framework** | Next.js 16 |
+| **UI** | React 19 |
+| **Language** | TypeScript |
+| **Styling** | Tailwind CSS 4 |
+| **Backend** | Supabase |
+| **Database** | PostgreSQL |
+| **Authentication** | Supabase Auth |
+| **File Storage** | Supabase Storage |
+| **Icons** | Lucide React |
+| **Version Control** | Git & GitHub |
+| **Deployment** | Vercel |
 
-## 🗄️ Backend & Storage
+</div>
 
-The application uses **Supabase** for its backend infrastructure.
-
-**PostgreSQL** is used for structured application data such as:
-- Projects
-- Enquiries
-- Project images
-- Gallery images
-- Admin users
-
-**Supabase Storage** holds project and gallery photographs, kept separate from the database.
-
-Example project organization:
-
-```
-projects/
-│
-├── project-id-1/
-│   ├── image-01.webp
-│   ├── image-02.webp
-│   └── image-03.webp
-│
-└── project-id-2/
-    ├── image-01.webp
-    └── image-02.webp
-```
-
-This keeps business images organized and makes the system easier to scale.
-
----
-
-## 📱 Responsive Design
-
-```
-📱 Mobile  →  📲 Tablet  →  💻 Laptop  →  🖥️ Desktop
-```
-
-The Admin Panel also includes a dedicated mobile navigation experience.
-
----
-
-## 💬 Customer Communication
-
-| Channel | Purpose |
-|---|---|
-| 📞 **Phone** | Direct business contact |
-| 💬 **WhatsApp** | Quick enquiry and communication |
-| 📩 **Website Form** | Structured project enquiry |
-| 📧 **Email** | Business communication |
-| 📍 **Google Maps** | Business location |
+<div align="right"><a href="#-table-of-contents">⬆️ Back to top</a></div>
 
 ---
 
 ## 📁 Project Structure
 
-```
+```text
 sandeep-enterprises/
 │
 ├── app/
@@ -304,11 +330,13 @@ sandeep-enterprises/
 │   │   ├── gallery/
 │   │   ├── login/
 │   │   └── projects/
+│   │
 │   ├── contact/
 │   ├── gallery/
 │   ├── projects/
 │   │   └── [id]/
 │   ├── services/
+│   │
 │   ├── globals.css
 │   ├── layout.tsx
 │   └── page.tsx
@@ -328,6 +356,7 @@ sandeep-enterprises/
 │   │   ├── ProjectImageDeleteButton.tsx
 │   │   ├── ProjectImageUpload.tsx
 │   │   └── StatusSelect.tsx
+│   │
 │   ├── Footer.tsx
 │   ├── Navbar.tsx
 │   ├── WhatsAppButton.tsx
@@ -342,7 +371,6 @@ sandeep-enterprises/
 │   └── images/
 │
 ├── package.json
-├── package-lock.json
 ├── next.config.ts
 ├── tsconfig.json
 ├── eslint.config.mjs
@@ -350,106 +378,176 @@ sandeep-enterprises/
 └── README.md
 ```
 
+<div align="right"><a href="#-table-of-contents">⬆️ Back to top</a></div>
+
 ---
 
 ## ⚡ Getting Started
 
-**1️⃣ Clone the repository**
+### 1. Clone
+
 ```bash
 git clone https://github.com/darekarwardhan-wq/sandeep-enterprises.git
-```
-
-**2️⃣ Navigate to the project**
-```bash
 cd sandeep-enterprises
 ```
 
-**3️⃣ Install dependencies**
+### 2. Install dependencies
+
 ```bash
 npm install
 ```
 
-**4️⃣ Configure environment variables**
+### 3. Configure environment variables
 
 Create a `.env.local` file:
+
 ```env
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
 
-> ⚠️ Never commit `.env.local` or private credentials to GitHub.
+### 4. Run locally
 
-**5️⃣ Start the development server**
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Then open:
+
+```text
+http://localhost:3000
+```
+
+<div align="right"><a href="#-table-of-contents">⬆️ Back to top</a></div>
 
 ---
 
 ## 🚀 Deployment
 
-The application is designed for deployment with **Vercel**.
+The application is designed for a simple GitHub → Vercel deployment workflow.
 
-```
-GitHub  →  Vercel  →  Next.js Application  →  Supabase (Database + Storage)
+```text
+┌─────────────┐
+│   GitHub    │
+└──────┬──────┘
+       │ push
+       ▼
+┌─────────────┐
+│   Vercel    │
+└──────┬──────┘
+       │ deploy
+       ▼
+┌─────────────┐
+│  Next.js    │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────────────┐
+│      Supabase       │
+│ DB • Auth • Storage │
+└─────────────────────┘
 ```
 
-**Build**
+### Production build
+
 ```bash
 npm run build
 ```
 
-**Start**
-```bash
-npm run start
-```
+<div align="right"><a href="#-table-of-contents">⬆️ Back to top</a></div>
 
 ---
 
 ## 🔒 Security
 
-The project uses:
+The platform is built with security-conscious practices including:
 
-- Supabase Authentication
-- Protected admin routes
-- Server-side Supabase access where appropriate
-- Environment variables for configuration
-- Supabase database permissions
-- Supabase Storage access controls
+- 🔐 Supabase Authentication for admin access
+- 🛡️ Protected admin routes
+- 🔑 Environment-based configuration
+- 🗄️ Database access controls
+- ☁️ Supabase Storage
+- 🚫 Secrets excluded from source control
 
-> Production deployments should keep credentials and privileged keys outside the repository.
+> **Never commit `.env.local` or private service-role credentials to GitHub.**
 
----
-
-## 🎯 Project Goals
-
-| Goal | Description |
-|---|---|
-| 🌐 **Digital Presence** | Create a professional online identity for an established industrial business |
-| 🤝 **Customer Accessibility** | Make it easier for potential customers to discover services and get in touch |
-| 🏗️ **Project Showcase** | Present completed fabrication and erection work in an organized portfolio |
-| 📊 **Business Management** | Provide an admin interface for managing enquiries, projects, and photographs |
-| 📈 **Scalability** | Build on a modern stack that can support additional business features in the future |
+<div align="right"><a href="#-table-of-contents">⬆️ Back to top</a></div>
 
 ---
 
-## 🔮 Future Roadmap
+## 📈 Design & UX
 
-- 📊 Advanced business analytics
-- 📈 Enquiry statistics
-- 📧 Email notifications
-- 🔔 Admin notifications
-- 📝 Detailed quotation requests
-- 📄 Online quotation generation
-- 📑 PDF project reports
-- 👥 Multiple admin accounts
-- 🔎 Advanced SEO
-- ⭐ Customer reviews
-- 📍 Project map integration
-- 🤖 AI-powered enquiry assistant
-- 📱 Progressive Web App support
+The interface follows a clean industrial-business visual language:
+
+- Strong typography
+- High-contrast content
+- White professional admin surfaces
+- Orange brand accents
+- Responsive layouts
+- Clear call-to-action elements
+- Consistent iconography
+- Mobile-friendly navigation
+- Project-first visual presentation
+
+The design goal is to communicate **trust, engineering capability and professionalism** rather than looking like a generic template.
+
+<div align="right"><a href="#-table-of-contents">⬆️ Back to top</a></div>
+
+---
+
+## 🎯 Project Objectives
+
+| Objective | Outcome |
+|:--|:--|
+| 🌐 Digital Presence | Establish a professional online identity |
+| 🏗️ Portfolio | Showcase completed fabrication & erection projects |
+| 📩 Lead Generation | Allow visitors to submit enquiries |
+| 💬 Communication | Connect customers through WhatsApp, phone and email |
+| 🔐 Business Control | Give administrators direct control over website content |
+| 📸 Media Management | Organize project and gallery photographs |
+| 📱 Accessibility | Provide a responsive experience across devices |
+| 📈 Scalability | Build on a modern stack for future expansion |
+
+<div align="right"><a href="#-table-of-contents">⬆️ Back to top</a></div>
+
+---
+
+## 🔮 Roadmap
+
+Future improvements can extend the platform into a broader business management solution:
+
+- [ ] 📊 Business analytics dashboard
+- [ ] 📈 Enquiry conversion analytics
+- [ ] 📧 Automated email notifications
+- [ ] 🔔 Admin notification center
+- [ ] 📝 Detailed quotation request system
+- [ ] 📄 PDF quotation generation
+- [ ] 📑 Project documentation
+- [ ] 👥 Multiple administrator accounts
+- [ ] ⭐ Customer reviews
+- [ ] 🔎 Advanced SEO
+- [ ] 📍 Project location mapping
+- [ ] 🤖 AI-powered enquiry assistant
+- [ ] 📱 Progressive Web App
+
+<div align="right"><a href="#-table-of-contents">⬆️ Back to top</a></div>
+
+---
+
+## 🧪 Development Philosophy
+
+This project focuses on three principles:
+
+### 01 — Professional
+The website should represent an established industrial business with a trustworthy digital identity.
+
+### 02 — Practical
+The admin panel should solve real operational needs rather than only provide a visual dashboard.
+
+### 03 — Scalable
+The architecture should make it possible to add business features without rebuilding the application.
+
+<div align="right"><a href="#-table-of-contents">⬆️ Back to top</a></div>
 
 ---
 
@@ -457,30 +555,42 @@ The project uses:
 
 <div align="center">
 
-**Wardhan Darekar**
-*Computer Science Engineering*
+### Wardhan Darekar
 
-Building modern web applications with **Next.js • TypeScript • React • Supabase • Tailwind CSS**
+**Computer Science Engineering**
 
-[![GitHub](https://img.shields.io/badge/GitHub-Wardhan_Darekar-black?style=for-the-badge&logo=github)](https://github.com/darekarwardhan-wq)
+Full-stack development using modern web technologies.
+
+<br/>
+
+<a href="https://github.com/darekarwardhan-wq">
+<img src="https://img.shields.io/badge/GitHub-Wardhan%20Darekar-111827?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+</a>
 
 </div>
+
+<div align="right"><a href="#-table-of-contents">⬆️ Back to top</a></div>
 
 ---
 
 ## ⭐ Support
 
-If you find this project useful or interesting, consider giving the repository a ⭐.
-It helps support continued development.
+If you find this project interesting, consider giving it a **⭐ Star** on GitHub.
 
 <div align="center">
 
-**🏗️ Built for Industry. Designed for the Digital World.**
+<br/>
 
-### SANDEEP ENTERPRISES
-*Fabrication • Erection • Industrial Solutions*
+## SANDEEP ENTERPRISES
 
-[![Made with Next.js](https://img.shields.io/badge/Made_with-Next.js-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![Powered by Supabase](https://img.shields.io/badge/Powered_by-Supabase-3ECF8E?style=for-the-badge&logo=supabase)](https://supabase.com/)
+### Fabrication • Erection • Industrial Solutions
+
+**Built for Industry. Designed for the Digital World.**
+
+<br/>
+
+<img src="https://img.shields.io/badge/Next.js-16-111827?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js"/>
+<img src="https://img.shields.io/badge/Supabase-Backend-3ECF8E?style=for-the-badge&logo=supabase&logoColor=111827" alt="Supabase"/>
+<img src="https://img.shields.io/badge/Vercel-Production-111827?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel"/>
 
 </div>
