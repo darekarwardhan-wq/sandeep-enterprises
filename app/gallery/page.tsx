@@ -12,36 +12,94 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 import { createClient } from "@/lib/supabase/server";
 
+// ============================================================
+// FORCE FRESH SUPABASE DATA
+// ============================================================
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+// ============================================================
+// TYPES
+// ============================================================
+
 interface GalleryImage {
   id: number;
   storage_path: string;
   created_at: string;
 }
 
+// ============================================================
+// GALLERY PAGE
+// ============================================================
+
 export default async function GalleryPage() {
   const supabase = await createClient();
+
+  // ==========================================================
+  // FETCH GALLERY IMAGES
+  // ==========================================================
 
   const { data: galleryImages, error } = await supabase
     .from("gallery_images")
     .select("id, storage_path, created_at")
-    .order("created_at", { ascending: false });
+    .order("created_at", {
+      ascending: false,
+    });
+
+  // ==========================================================
+  // IMPORTANT ERROR CHECK
+  // ==========================================================
 
   if (error) {
-    console.error("Gallery fetch error:", error);
+    console.error("========================================");
+    console.error("GALLERY SUPABASE ERROR");
+    console.error("Message:", error.message);
+    console.error("Details:", error.details);
+    console.error("Hint:", error.hint);
+    console.error("Code:", error.code);
+    console.error("========================================");
+
+    throw new Error(
+      `Gallery Supabase error: ${error.message}`
+    );
   }
 
+  // ==========================================================
+  // DATABASE IMAGES
+  // ==========================================================
+
   const images: GalleryImage[] = galleryImages ?? [];
+
+  console.log(
+    "GALLERY IMAGES FROM SUPABASE:",
+    images
+  );
+
+  // ==========================================================
+  // CREATE PUBLIC STORAGE URLS
+  // ==========================================================
 
   const imagesWithUrls = images.map((image) => {
     const { data } = supabase.storage
       .from("gallery-images")
       .getPublicUrl(image.storage_path);
 
+    console.log("Gallery image:", {
+      id: image.id,
+      storagePath: image.storage_path,
+      publicUrl: data.publicUrl,
+    });
+
     return {
       ...image,
       publicUrl: data.publicUrl,
     };
   });
+
+  // ==========================================================
+  // PAGE
+  // ==========================================================
 
   return (
     <main className="min-h-screen bg-white text-slate-900">
@@ -53,12 +111,14 @@ export default async function GalleryPage() {
 
       <section className="relative overflow-hidden">
         <div className="absolute -right-24 -top-32 h-80 w-80 rounded-full bg-orange-100/60 blur-3xl" />
+
         <div className="absolute -top-24 left-1/3 h-72 w-72 rounded-full bg-slate-50 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-5 pb-14 pt-20 sm:px-6 sm:pt-24 lg:px-8 lg:pt-28">
           <div className="max-w-3xl">
             <div className="flex items-center gap-3">
               <span className="h-px w-10 bg-orange-500" />
+
               <p className="text-xs font-black uppercase tracking-[0.3em] text-orange-600">
                 Our Work
               </p>
@@ -66,12 +126,15 @@ export default async function GalleryPage() {
 
             <h1 className="mt-5 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
               Industrial Work
-              <span className="text-orange-500"> Gallery</span>
+              <span className="text-orange-500">
+                {" "}
+                Gallery
+              </span>
             </h1>
 
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-500 sm:text-lg">
-              Explore photographs from our fabrication, erection, workshop
-              and industrial site work.
+              Explore photographs from our fabrication,
+              erection, workshop and industrial site work.
             </p>
           </div>
         </div>
@@ -82,11 +145,13 @@ export default async function GalleryPage() {
       {/* ===================================================== */}
 
       <section className="relative mx-auto max-w-7xl px-5 pb-20 pt-4 sm:px-6 sm:pb-24 lg:px-8">
-        {/* Header */}
+        {/* HEADER */}
+
         <div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-orange-500" />
+
               <p className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-400">
                 Behind The Work
               </p>
@@ -104,6 +169,7 @@ export default async function GalleryPage() {
           {images.length > 0 && (
             <div className="inline-flex w-fit items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2.5 shadow-sm">
               <Images className="h-4 w-4 text-orange-500" />
+
               <span className="text-xs font-bold text-slate-600">
                 {images.length}{" "}
                 {images.length === 1 ? "Photo" : "Photos"}
@@ -127,8 +193,9 @@ export default async function GalleryPage() {
             </h3>
 
             <p className="mx-auto mt-3 max-w-md text-sm leading-7 text-slate-500">
-              We are currently updating our gallery with photographs of our
-              fabrication, erection and industrial work.
+              We are currently updating our gallery with
+              photographs of our fabrication, erection and
+              industrial work.
             </p>
 
             <Link
@@ -136,6 +203,7 @@ export default async function GalleryPage() {
               className="mt-7 inline-flex items-center gap-2 rounded-xl bg-orange-500 px-6 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-orange-600"
             >
               Get In Touch
+
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -152,21 +220,26 @@ export default async function GalleryPage() {
                 key={image.id}
                 className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
-                {/* Image */}
+                {/* IMAGE */}
+
                 <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
                   <img
                     src={image.publicUrl}
-                    alt={`Sandeep Enterprises industrial work ${index + 1}`}
+                    alt={`Sandeep Enterprises industrial work ${
+                      index + 1
+                    }`}
                     className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
                   />
 
-                  {/* Image number */}
+                  {/* IMAGE NUMBER */}
+
                   <div className="absolute right-3 top-3 rounded-full border border-slate-200 bg-white/90 px-2.5 py-1 text-[10px] font-bold text-slate-600 shadow-sm backdrop-blur-sm">
                     {String(index + 1).padStart(2, "0")}
                   </div>
                 </div>
 
-                {/* Caption */}
+                {/* CAPTION */}
+
                 <figcaption className="flex items-center gap-3 border-t border-slate-100 px-4 py-3.5">
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-50 text-orange-500">
                     <ImageIcon className="h-4 w-4" />
@@ -206,8 +279,8 @@ export default async function GalleryPage() {
             </h2>
 
             <p className="mt-4 text-sm leading-7 text-slate-500 sm:text-base">
-              Discuss your fabrication and erection requirements with
-              Sandeep Enterprises.
+              Discuss your fabrication and erection requirements
+              with Sandeep Enterprises.
             </p>
           </div>
 
@@ -217,6 +290,7 @@ export default async function GalleryPage() {
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-7 py-3.5 text-sm font-bold text-white shadow-sm transition hover:bg-orange-600"
             >
               Contact Us
+
               <ArrowRight className="h-4 w-4" />
             </Link>
 

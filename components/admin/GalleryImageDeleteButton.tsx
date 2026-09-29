@@ -30,9 +30,72 @@ export default function GalleryImageDeleteButton({
     setDeleting(true);
 
     try {
-      // -------------------------------------------------
-      // Delete image from Supabase Storage
-      // -------------------------------------------------
+      // ============================================================
+      // 1. CHECK AUTHENTICATION
+      // ============================================================
+
+      const {
+        data: { user },
+        error: authError,
+      } = await supabase.auth.getUser();
+
+      if (authError || !user) {
+        console.error("Gallery delete authentication error:", authError);
+
+        window.alert(
+          "Your admin session has expired. Please log in again."
+        );
+
+        setDeleting(false);
+        return;
+      }
+
+      // ============================================================
+      // 2. DELETE DATABASE RECORD FIRST
+      // ============================================================
+
+      const { data: deletedRows, error: databaseError } = await supabase
+        .from("gallery_images")
+        .delete()
+        .eq("id", imageId)
+        .select("id");
+
+      if (databaseError) {
+        console.error("Gallery database delete error:", databaseError);
+
+        window.alert(
+          `Unable to delete the gallery database record.\n\n${databaseError.message}`
+        );
+
+        setDeleting(false);
+        return;
+      }
+
+      // ============================================================
+      // 3. VERIFY DATABASE DELETE
+      // ============================================================
+
+      if (!deletedRows || deletedRows.length === 0) {
+        console.error(
+          "Gallery database delete returned zero deleted rows."
+        );
+
+        window.alert(
+          "The gallery record was not deleted. Please check your admin session and Supabase permissions."
+        );
+
+        setDeleting(false);
+        return;
+      }
+
+      console.log(
+        "Gallery database record deleted successfully:",
+        deletedRows
+      );
+
+      // ============================================================
+      // 4. DELETE IMAGE FROM STORAGE
+      // ============================================================
 
       const { error: storageError } = await supabase.storage
         .from("gallery-images")
@@ -42,36 +105,25 @@ export default function GalleryImageDeleteButton({
         console.error("Gallery storage delete error:", storageError);
 
         window.alert(
-          "Unable to delete the photo from storage. Please try again."
+          `The gallery record was deleted, but the image file could not be removed from Storage.\n\n${storageError.message}`
         );
 
         setDeleting(false);
+
+        // Refresh so the deleted gallery record disappears.
+        router.refresh();
+
         return;
       }
 
-      // -------------------------------------------------
-      // Delete database record
-      // -------------------------------------------------
+      // ============================================================
+      // 5. SUCCESS
+      // ============================================================
 
-      const { error: databaseError } = await supabase
-        .from("gallery_images")
-        .delete()
-        .eq("id", imageId);
-
-      if (databaseError) {
-        console.error("Gallery database delete error:", databaseError);
-
-        window.alert(
-          "The photo file was deleted, but its database record could not be removed."
-        );
-
-        setDeleting(false);
-        return;
-      }
-
-      // -------------------------------------------------
-      // Refresh the server component
-      // -------------------------------------------------
+      console.log("Gallery image deleted successfully:", {
+        imageId,
+        storagePath,
+      });
 
       router.refresh();
     } catch (error) {

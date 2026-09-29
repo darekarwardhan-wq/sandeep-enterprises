@@ -5,7 +5,7 @@ import WhatsAppButton from "../components/WhatsAppButton";
 const whatsappNumber = "919822193954";
 
 const whatsappMessage = encodeURIComponent(
-  "Hello SANDEEP ENTERPRISES, I found your website and would like to enquire about fabrication and erection work."
+  "Hello SANDEEP ENTERPRISES, I found your website and would like to enquire about industrial maintenance, fabrication, erection or manpower services."
 );
 
 const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
@@ -16,14 +16,14 @@ const services = [
     title: "Structural Steel Fabrication",
     image: "/images/service-01.png",
     description:
-      "Fabrication of structural steel components for industrial, commercial and infrastructure requirements.",
+      "Structural steel fabrication for industrial, commercial and infrastructure requirements.",
   },
   {
     number: "02",
-    title: "Industrial Shed Fabrication",
+    title: "Industrial Shed & Roofing",
     image: "/images/service-02.png",
     description:
-      "Complete fabrication solutions for industrial sheds, warehouses and large structural applications.",
+      "Industrial shed fabrication, roofing and structural solutions for industrial facilities.",
   },
   {
     number: "03",
@@ -34,39 +34,58 @@ const services = [
   },
   {
     number: "04",
-    title: "MS Fabrication",
+    title: "Plant Maintenance",
     image: "/images/service-04.jpeg",
     description:
-      "Mild steel fabrication for custom industrial, commercial and structural requirements.",
+      "Industrial plant maintenance support for ongoing operational and maintenance requirements.",
   },
   {
     number: "05",
-    title: "Staircases & Handrails",
+    title: "Crane Maintenance",
     image: "/images/service-05.jpeg",
     description:
-      "Fabrication and installation of steel staircases, handrails, ladders and access structures.",
+      "Crane maintenance support along with skilled technicians for industrial maintenance requirements.",
   },
   {
     number: "06",
-    title: "Platforms & Structures",
+    title: "Piping Fabrication & Erection",
     image: "/images/service-06.jpeg",
     description:
-      "Industrial platforms, walkways, supporting structures and customized steel solutions.",
+      "Industrial piping fabrication and erection work for plant and infrastructure requirements.",
   },
   {
     number: "07",
-    title: "Machinery Structures",
+    title: "Technical Manpower Supply",
     image: "/images/service-07.jpeg",
     description:
-      "Custom steel frames, supports and structures designed around machinery and equipment requirements.",
+      "Supply of skilled technicians, fitters, helpers and industrial manpower for project and maintenance requirements.",
   },
   {
     number: "08",
-    title: "Repair & Modification",
+    title: "Industrial Cleaning & Support",
     image: "/images/service-08.jpeg",
     description:
-      "Structural repair, modification, strengthening and alteration work for existing installations.",
+      "Dust collector cleaning, powder cell cleaning and other industrial maintenance support services.",
   },
+];
+
+const additionalServices = [
+  "Structural Fabrication & Erection",
+  "Industrial Shed Work",
+  "Piping Fabrication & Erection",
+  "Plant Maintenance",
+  "Crane Maintenance",
+  "Crane Maintenance Technicians",
+  "Painting & Coating",
+  "Roofing Work",
+  "Dust Collector Cleaning",
+  "Powder Cell Cleaning",
+  "Technical Manpower Supply",
+  "Fitters & Helpers Supply",
+  "CGL-1 & CSD Manpower Support",
+  "ARP Technical Manpower Support",
+  "Telecommunication Tower Work",
+  "General Labour Supply",
 ];
 
 const stats = [
@@ -75,8 +94,8 @@ const stats = [
     label: "Years of Experience",
   },
   {
-    value: "100%",
-    label: "Project Commitment",
+    value: "360°",
+    label: "Industrial Support",
   },
   {
     value: "Pune",
@@ -88,6 +107,17 @@ const projects = [
   "/images/service-01.png",
   "/images/service-02.png",
   "/images/service-03.jpeg",
+];
+
+const industryExperience = [
+  {
+    name: "Foseco India Limited",
+    website: "https://www.foseco.com/",
+  },
+  {
+    name: "ArcelorMittal Nippon Steel India",
+    website: "https://www.amns.in/",
+  },
 ];
 
 export default function Home() {
@@ -103,7 +133,6 @@ export default function Home() {
         id="home"
         className="relative flex min-h-screen items-center overflow-hidden"
       >
-        {/* Soft orange background glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_45%,rgba(249,115,22,0.10),transparent_32%)]" />
 
         <div className="relative mx-auto grid w-full max-w-7xl gap-14 px-5 pb-16 pt-32 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:pt-36">
@@ -114,7 +143,7 @@ export default function Home() {
               <span className="h-px w-10 bg-orange-500 sm:w-14" />
 
               <span className="text-xs font-bold uppercase tracking-[0.25em] text-orange-500 sm:text-sm">
-                Fabrication & Erection
+                Fabrication • Erection • Maintenance
               </span>
             </div>
 
@@ -125,13 +154,15 @@ export default function Home() {
             </h1>
 
             <p className="mt-7 max-w-2xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
-              Reliable fabrication and erection solutions backed by more than
-              25 years of hands-on industry experience.
+              Reliable industrial fabrication, erection, maintenance and
+              technical manpower solutions backed by more than 25 years of
+              hands-on experience.
             </p>
 
             <p className="mt-3 max-w-xl text-sm leading-6 text-gray-500">
-              From structural steel and industrial sheds to customized
-              fabrication and on-site erection work.
+              From structural steel and industrial sheds to plant maintenance,
+              crane maintenance, piping, technical manpower and customized
+              industrial requirements.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -175,11 +206,10 @@ export default function Home() {
             <div className="absolute right-0 top-1/2 h-[520px] w-[520px] -translate-y-1/2 overflow-hidden border border-orange-500/20 bg-[#F7F7F5] shadow-sm">
               <img
                 src="/images/hero.png"
-                alt="Sandeep Enterprises fabrication work"
+                alt="Sandeep Enterprises industrial fabrication work"
                 className="h-full w-full object-cover"
               />
 
-              {/* Subtle image overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
             </div>
 
@@ -223,8 +253,9 @@ export default function Home() {
 
           <div className="text-base leading-8 text-gray-600 sm:text-lg">
             <p>
-              SANDEEP ENTERPRISES is a fabrication and erection business based
-              in Sanaswadi, Pune, operated by{" "}
+              SANDEEP ENTERPRISES is an industrial fabrication, erection,
+              maintenance and manpower services business based in Sanaswadi,
+              Pune, operated by{" "}
               <span className="font-semibold text-[#111111]">
                 Sandip Mahadev Darekar
               </span>
@@ -232,20 +263,109 @@ export default function Home() {
             </p>
 
             <p className="mt-5">
-              With more than 25 years of experience, the business undertakes a
-              wide range of fabrication and erection requirements for
-              industrial, commercial and other projects.
+              With more than 25 years of practical experience, the business
+              undertakes a wide range of industrial requirements including
+              structural fabrication and erection, plant maintenance, crane
+              maintenance, piping, industrial sheds, roofing, painting and
+              technical manpower supply.
             </p>
 
             <p className="mt-5">
-              Our focus is on practical execution, quality workmanship,
-              dependable service and completing work according to project and
-              site requirements.
+              Our capabilities also include supply of technicians for crane
+              maintenance, fitters and helpers, industrial cleaning work,
+              dust collector and powder cell cleaning, telecommunication tower
+              work and general labour requirements.
             </p>
 
             <div className="mt-8 border-l-2 border-orange-500 pl-5 text-[#111111]">
-              25+ years of experience in the fabrication and erection field.
+              Practical industrial experience backed by dependable execution
+              and skilled manpower.
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* INDUSTRY EXPERIENCE */}
+      {/* ========================================================= */}
+
+      <section className="relative overflow-hidden bg-[#111111] text-white">
+        {/* Subtle orange glow */}
+
+        <div className="pointer-events-none absolute -right-40 top-0 h-[500px] w-[500px] rounded-full bg-orange-500/10 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-24 lg:px-8">
+          {/* SECTION HEADER */}
+
+          <div className="mx-auto max-w-5xl text-center">
+            <div className="flex items-center justify-center gap-3">
+              <span className="h-px w-10 bg-orange-500 sm:w-14" />
+
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-orange-500 sm:text-sm">
+                Industry Experience
+              </p>
+
+              <span className="h-px w-10 bg-orange-500 sm:w-14" />
+            </div>
+
+            <h2 className="mt-6 text-4xl font-black leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl">
+              SANDEEP ENTERPRISES
+              <span className="block text-orange-500">
+                WORKS WITH REPUTED
+              </span>
+              AND WORLD-RENOWNED
+              <span className="block">INDUSTRIAL COMPANIES.</span>
+            </h2>
+
+            <p className="mx-auto mt-7 max-w-3xl text-base leading-8 text-gray-300 sm:text-lg">
+              Our industrial experience includes working with established and
+              globally recognized organizations.
+            </p>
+          </div>
+
+          {/* COMPANY NAMES */}
+
+          <div className="mx-auto mt-14 max-w-5xl">
+            <div className="border-y border-white/10">
+              {industryExperience.map((company, index) => (
+                <a
+                  key={company.name}
+                  href={company.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${company.name} official website`}
+                  className="group flex flex-col gap-5 border-b border-white/10 py-8 last:border-b-0 sm:flex-row sm:items-center sm:justify-between sm:py-10"
+                >
+                  <div className="flex items-start gap-6 sm:items-center">
+                    <span className="text-sm font-black text-orange-500">
+                      0{index + 1}
+                    </span>
+
+                    <h3 className="text-2xl font-black leading-tight tracking-tight text-white transition duration-300 group-hover:text-orange-500 sm:text-3xl lg:text-4xl">
+                      {company.name}
+                    </h3>
+                  </div>
+
+                  <span className="text-2xl text-orange-500 transition-transform duration-300 group-hover:translate-x-2">
+                    ↗
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* BOTTOM STATEMENT */}
+
+          <div className="mt-12 border-t border-white/10 pt-8 text-center">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-500">
+              Industrial Capability
+            </p>
+
+            <p className="mx-auto mt-3 max-w-3xl text-sm leading-7 text-gray-400 sm:text-base">
+              From skilled manpower and maintenance support to fabrication,
+              erection and site services, SANDEEP ENTERPRISES delivers
+              practical industrial solutions based on project requirements.
+            </p>
           </div>
         </div>
       </section>
@@ -267,8 +387,8 @@ export default function Home() {
               </h2>
 
               <p className="mt-5 leading-7 text-gray-600">
-                A broad range of fabrication and erection services for
-                industrial and commercial requirements.
+                Comprehensive industrial services covering fabrication,
+                erection, maintenance, technical manpower and site support.
               </p>
             </div>
 
@@ -323,6 +443,38 @@ export default function Home() {
             ))}
           </div>
 
+          {/* ADDITIONAL SERVICES */}
+
+          <div className="mt-14 border-t border-black/10 pt-10">
+            <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.25em] text-orange-500">
+                  Additional Services
+                </p>
+
+                <h3 className="mt-4 text-3xl font-black">
+                  Industrial support
+                  <br />
+                  <span className="text-orange-500">
+                    when you need it.
+                  </span>
+                </h3>
+              </div>
+
+              <div className="grid gap-px border border-black/10 bg-black/10 sm:grid-cols-2">
+                {additionalServices.map((service) => (
+                  <div
+                    key={service}
+                    className="bg-[#F7F7F5] px-5 py-4 text-sm font-medium text-gray-700 transition hover:bg-white hover:text-black"
+                  >
+                    <span className="mr-2 text-orange-500">+</span>
+                    {service}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <div className="mt-8 text-center">
             <p className="text-sm text-gray-500">
               Need something different?
@@ -359,25 +511,31 @@ export default function Home() {
                   experience.
                 </span>
               </h2>
+
+              <p className="mt-6 max-w-md leading-7 text-gray-600">
+                We combine practical industrial experience with skilled
+                manpower and flexible execution to support a wide range of
+                site requirements.
+              </p>
             </div>
 
             <div className="grid gap-px border border-black/10 bg-black/10 sm:grid-cols-2">
               {[
                 [
                   "25+",
-                  "Years of practical experience in fabrication and erection.",
+                  "Years of practical experience in industrial fabrication, erection and maintenance.",
                 ],
                 [
                   "01",
-                  "Direct communication with the business owner.",
+                  "Single point of coordination for fabrication, maintenance and manpower requirements.",
                 ],
                 [
                   "02",
-                  "Flexible solutions based on project requirements.",
+                  "Skilled technicians, fitters, helpers and labour support based on project requirements.",
                 ],
                 [
                   "03",
-                  "Fabrication and erection capabilities under one business.",
+                  "Flexible industrial solutions covering fabrication, erection, maintenance and site support.",
                 ],
               ].map(([number, text]) => (
                 <div
@@ -416,7 +574,8 @@ export default function Home() {
             </div>
 
             <p className="max-w-md text-sm leading-6 text-gray-600">
-              A glimpse of our completed fabrication and erection work.
+              A glimpse of our fabrication, erection and industrial support
+              work.
             </p>
           </div>
 
@@ -457,16 +616,18 @@ export default function Home() {
           <div className="flex flex-col justify-between gap-9 lg:flex-row lg:items-center">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.25em]">
-                Have a Project?
+                Have an Industrial Requirement?
               </p>
 
               <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight sm:text-5xl">
-                Let's discuss your fabrication requirement.
+                Let's discuss your fabrication, maintenance or manpower
+                requirement.
               </h2>
 
               <p className="mt-5 max-w-xl text-black/70">
                 Contact SANDEEP ENTERPRISES directly for fabrication, erection,
-                structural and customized work requirements.
+                industrial maintenance, technical manpower and customized work
+                requirements.
               </p>
             </div>
 
