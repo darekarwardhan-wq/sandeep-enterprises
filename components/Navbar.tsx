@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 const whatsappNumber = "919822193954";
@@ -28,16 +29,28 @@ export default function Navbar() {
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-6 lg:px-8">
-        {/* LOGO */}
-        <a href="/" className="group" onClick={closeMenu}>
-          <div className="text-lg font-black tracking-[0.12em] text-[#111111] sm:text-xl">
-            SANDEEP
-            <span className="text-orange-500"> ENTERPRISES</span>
-          </div>
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-6 lg:px-8">
 
-          <div className="mt-0.5 text-[8px] font-medium tracking-[0.35em] text-gray-500 sm:text-[9px]">
-            FABRICATION • ERECTION
+        {/* LOGO */}
+        <a href="/" className="group flex items-center" onClick={closeMenu}>
+          <Image
+            src="/images/logo.png"
+            alt="Sandeep Enterprises"
+            width={95}
+            height={95}
+            priority
+            className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
+          />
+
+          <div className="ml-2 hidden sm:block">
+            <div className="text-lg font-black tracking-[0.08em] text-[#111111]">
+              SANDEEP
+              <span className="text-orange-500"> ENTERPRISES</span>
+            </div>
+
+            <div className="mt-0.5 text-[8px] font-medium tracking-[0.30em] text-gray-500">
+              FABRICATION • ERECTION
+            </div>
           </div>
         </a>
 
