@@ -216,28 +216,27 @@ ${message}`
 
                   <div className="h-[280px] w-full border-t border-black/10 bg-gray-200">
                     <iframe
-                      title="Sandeep Enterprises Location"
-                      src="https://www.google.com/maps?q=Sanaswadi,+Pune,+Maharashtra&output=embed"
-                      className="h-full w-full border-0"
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                    />
+  title="Sandeep Enterprises Location"
+  src="https://www.google.com/maps?q=18.6720544,74.0921258&z=17&output=embed"
+  className="h-full w-full border-0"
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+/>
                   </div>
 
                   {/* VIEW ON GOOGLE MAPS */}
 
                   <div className="border-t border-black/10 bg-white p-4">
-                    <a
-                      href="https://www.google.com/maps/search/?api=1&query=Sanaswadi,+Pune,+Maharashtra"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between text-sm font-bold text-[#111111] transition hover:text-orange-500"
-                    >
-                      <span>View on Google Maps</span>
-
-                      <span className="text-lg">↗</span>
-                    </a>
-                  </div>
+  <a
+    href="https://www.google.com/maps/dir/?api=1&destination=18.6720544,74.0921258&travelmode=driving"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center justify-between text-sm font-bold text-[#111111] transition hover:text-orange-500"
+  >
+    <span>Get Directions</span>
+    <span className="text-lg">↗</span>
+  </a>
+</div>
                 </div>
               </div>
             </div>
